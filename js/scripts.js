@@ -40,7 +40,7 @@ $(() => {
         $(this).hide();
         $header.hide();
         $exitVideoBtn.show();
-        $backgroundImage.removeClass('set-background');
+        //$backgroundImage.removeClass('set-background');
         $player.removeClass('hide');
         $('video, audio', $player)[0].play();
     });
