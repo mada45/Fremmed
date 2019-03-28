@@ -1,0 +1,429 @@
+@charset "UTF-8";
+*{
+    box-sizing: border-box;
+}
+
+html{
+    font-family: oswald, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 5vw;
+}
+
+body{
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+}
+
+.set-background{
+    background: url(../resources/blue-hands.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2vw 0 2vw;
+}
+
+/* Hide element */
+.hide{
+    display: none !important;
+}
+
+button{
+    outline: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    cursor: pointer;
+}
+
+ul{
+    list-style: none;
+    padding: 0;
+    margin: 4em 1em 4em 1em;
+}
+
+/* Navigation */
+#navLogo{
+    max-width: 20%;
+    margin: 1em;
+}
+
+nav {
+    z-index: 10;
+    background: #2d4867;
+    position: fixed;
+    right: 2%;
+    top: 1%;
+    display: none;
+    text-transform: uppercase;
+}
+
+.nav-list li {
+    text-align: center;
+    margin: 0 1.5em 1em 1.5em;
+    padding: 0;
+}
+
+.nav-list a {
+    padding: 0.5em 0;
+    color: rgba(255, 255, 255, 0.5);
+    position: relative;
+    letter-spacing: 1px;
+    font-size: 10vw;
+}
+
+.nav-list a:before,
+.nav-list a:after {
+    position: absolute;
+    -webkit-transition: all 0.35s ease;
+    transition: all 0.35s ease;
+}
+.nav-list a:before {
+    bottom: 0;
+    display: block;
+    height: 3px;
+    width: 0%;
+    content: "";
+    background-color: #104bbe;
+}
+.nav-list a:after {
+    left: 0;
+    top: 0;
+    padding: 0.5em 0;
+    position: absolute;
+    content: attr(data-hover);
+    color: #ffffff;
+    white-space: nowrap;
+    max-width: 0%;
+    overflow: hidden;
+}
+.nav-list a:hover:before,
+.nav-list .current a:before {
+    opacity: 1;
+    width: 100%;
+}
+.nav-list a:hover:after,
+.nav-list .current a:after {
+    max-width: 100%;
+}
+
+#enterPageBtn{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: transparent;
+    border: none;
+}
+
+#enterPageBtn:hover{
+    cursor: pointer;
+}
+
+/* Video section */
+#videoContainer{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+            "videoControls exitBtn"
+            "video video";
+    margin: 0;
+    background: black;
+    color: white;
+}
+
+#videoPlayer{
+    grid-area: video;
+    width: 100%;
+    max-height: 100%;
+}
+
+#playerControls{
+    grid-area: videoControls;
+    display: flex;
+    flex-flow: wrap;
+}
+
+.control{
+    padding: 0 0.5em 0 0;
+}
+
+#watchNowBtn{
+    font-size: 6vw;
+    font-family: oswald, sans-serif;
+    font-weight: 700;
+    position: absolute;
+    text-align: center;
+    height: auto;
+    right: 15vw;
+    bottom: 25vw;
+    padding: 20px 40px;
+    text-transform: uppercase;
+    color: #2d4867;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #2d4867;
+    opacity: 0.9;
+    background: transparent;
+}
+
+#watchNowBtn:before {
+    display: block;
+    height: 3px;
+    right: 0;
+    width: 0%;
+    content: "";
+    background: #104bbe;
+    transition: all 0.35s ease;;
+    -webkit-transition: all 0.35s ease;;
+}
+
+#watchNowBtn:hover{
+    cursor: pointer;
+    background: #2d4867;
+    color: #ffffff;
+    transition: all 0.35s ease;;
+    -webkit-transition: all 0.35s ease;;
+}
+
+#watchNowBtn:hover:before,
+#watchNowBtn .current:before {
+    transition: all 0.35s ease;;
+    -webkit-transition: all 0.35s ease;;
+    opacity: 1;
+    width: 100%;
+}
+#watchNowBtn:hover:after,
+#watchNowBtn .current:after {
+    max-width: 100%;
+}
+
+.playPause{
+    color: white;
+}
+
+#exitVideoBtn{
+    grid-area: exitBtn;
+    border: none;
+    color: white;
+    background: transparent;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 5vw;
+    text-transform: uppercase;
+}
+
+.progressBar {
+    position: relative;
+    width: 100%;
+    height:10px;
+    background-color: #cccccc;
+}
+
+.timeBar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #2d4867;
+}
+
+#exitVideoBtn:hover{
+    -webkit-animation: slide-fwd-center 0.45s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: slide-fwd-center 0.45s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@-webkit-keyframes slide-fwd-center {
+    0% {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+    100% {
+        -webkit-transform: translateZ(160px);
+        transform: translateZ(160px);
+    }
+}
+
+@keyframes slide-fwd-center {
+    0% {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+    100% {
+        -webkit-transform: translateZ(160px);
+        transform: translateZ(160px);
+    }
+}
+
+#listen-player{
+    width: 300vw;
+    height: 380vh;
+}
+
+/* Slide up text */
+@-webkit-keyframes fadeInUp {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.fadeInUp {
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp;
+}
+
+/* Slide forward center */
+.slide-fwd-center {
+    -webkit-animation: slide-fwd-center 0.45s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: slide-fwd-center 0.45s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@-webkit-keyframes slide-fwd-center {
+    0% {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+    100% {
+        -webkit-transform: translateZ(160px);
+        transform: translateZ(160px);
+    }
+}
+@keyframes slide-fwd-center {
+    0% {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+    100% {
+        -webkit-transform: translateZ(160px);
+        transform: translateZ(160px);
+    }
+}
+
+/* Zoom in background image */
+.kenburns-top {
+    -webkit-animation: kenburns-top 5s ease-out both;
+    animation: kenburns-top 5s ease-out both;
+}
+
+@-webkit-keyframes kenburns-top {
+    0% {
+        -webkit-transform: scale(1) translateY(0);
+        transform: scale(1) translateY(0);
+        -webkit-transform-origin: 50% 16%;
+        transform-origin: 50% 16%;
+    }
+    100% {
+        -webkit-transform: scale(1.25) translateY(-15px);
+        transform: scale(1.25) translateY(-15px);
+        -webkit-transform-origin: top;
+        transform-origin: top;
+    }
+}
+@keyframes kenburns-top {
+    0% {
+        -webkit-transform: scale(1) translateY(0);
+        transform: scale(1) translateY(0);
+        -webkit-transform-origin: 50% 16%;
+        transform-origin: 50% 16%;
+    }
+    100% {
+        -webkit-transform: scale(1.25) translateY(-15px);
+        transform: scale(1.25) translateY(-15px);
+        -webkit-transform-origin: top;
+        transform-origin: top;
+    }
+}
+
+
+
+/************* Media Queries ****************/
+
+@media screen and (min-width: 700px){
+    /* Navigation */
+    nav{
+        display: flex;
+        flex-flow: column;
+        padding: 0;
+        right: 1%;
+        top: 3%;
+    }
+
+    nav ul{
+        padding: 0;
+        margin: 1em 2em 1em 2em;
+    }
+
+    .nav-list li{
+        margin: 0;
+    }
+
+    #navLogo{
+        max-width: 30%;
+        margin: 0;
+    }
+
+    nav a{
+        display: inline-block;
+        padding: 0;
+    }
+
+    .nav-list a{
+        font-size: 2.5vw;
+    }
+
+    #videoContainer{
+        font-size: 1.5vw;
+    }
+
+    #watchNowBtn{
+        font-size: 1.5vw;
+        right: 25vw;
+        bottom: 10vw;
+    }
+
+    #exitVideoBtn{
+        grid-area: exitBtn;
+        font-size: 1.5vw;
+        color: white;
+    }
+
+    #exitVideoBtn:hover{
+        opacity: 0.7;
+    }
+
+}

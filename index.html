@@ -1,13 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Fremmed</title>
-<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-<meta name="viewport" content="width=device-width">
-<link rel="stylesheet" href="css/page-style.css">
+    <title>Fremmed</title>
+    <!-- Don't index page -->
+    <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    <meta name="viewport" content="width=device-width" shrink-to-fit="no">
+    <link rel="stylesheet" href="css/page-style.css">
+    <!-- Font -->
+    <link rel="stylesheet" href="https://use.typekit.net/tqc1dll.css">
+    <!-- Burger menu -->
+    <link href="css/hamburgers.css" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
 <body>
-	
+    <header>
+        <!-- Logo -->
+        <a href="index.html"><img src="resources/circle-logo.png" id="navLogo" alt="logo"></a>
+        <!-- Burger menu button -->
+        <button class="hamburger hamburger--3dx" type="button">
+            <span class="hamburger-box">
+               <span class="hamburger-inner"></span>
+            </span>
+        </button>
+        <!-- Burger menu content -->
+        <nav class="breadcrumb">
+            <ul class="nav-list">
+                <li><a class="breadcrumbItem" type="button" data-hover="Listen">Listen</a></li>
+                <li><a class="breadcrumbItem" type="button" data-hover="Watch">Watch</a></li>
+                <li><a class="breadcrumbItem" type="button" data-hover="Discover">Discover</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <button type="button" id="enterPageBtn"><img src="resources/circle-logo.png" id="enter-page-logo" alt="logo"></button>
+
+        <!-- Video player section -->
+        <div id="videoContainer">
+            <section id="playerControls">
+                <div class="control">
+                    <a href="#" class="playPause" id="playVideoBtn"><i class="fas fa-play"></i></a>
+                    <a href="#" class="playPause" id="pauseVideoBtn"><i class="fas fa-pause"></i></a>
+                </div>
+                <div class="progressTime">
+                    <span class="current"></span>
+                    <span class="timeSeparator">/</span>
+                    <span class="duration"></span>
+                </div>
+                <div class="progressBar">
+                    <div class="timeBar"></div>
+                </div>
+            </section>
+            <button id="exitVideoBtn"><i class="fas fa-times"></i>&nbsp;Close</button>
+            <video id="videoPlayer" autoplay>
+                <source src="resources/gucci-gang.mp4" type="video/mp4">
+                Your browser doesn't support HTML5 video. Download the video instead.
+            </video> <!-- poster element for opening image before start of video, make it same dimensions -->
+        </div>
+        <div class="wrapper watchNow">
+            <button class="hide" id="watchNowBtn" data-hover="Watch Now">Watch Now</button>
+        </div>
+        <!-- Listen section -->
+        <section class="section" id="listen-section">
+        </section>
+        <!-- Watch section -->
+        <section class="section" id="watch-section"></section>
+        <!-- Discover section -->
+        <section class="section" id="discover-section"></section>
+    </main>
+
+    <!-- Scripts -->
+    <!-- First try loading jQuery from Google's CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Fall back to a local copy of jQuery if the CDN fails (downloaded from http://jquery.com/)  -->
+    <script>
+        window.jQuery || document.write('<script src="js/jquery-3.3.1.min.js"><\/script>');
+    </script>
+
+    <!-- now we can write jQuery or JavaScript in our own files -->
+    <script src="js/scripts.js"></script>
 </body>
-<!-- js file -->
 </html>
