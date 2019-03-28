@@ -34,39 +34,117 @@
     </header>
     <main>
         <button type="button" id="enterPageBtn"><img src="resources/circle-logo.png" id="enter-page-logo" alt="logo"></button>
-
-        <!-- Video player section -->
-        <div id="videoContainer">
-            <section id="playerControls">
-                <div class="control">
-                    <a href="#" class="playPause" id="playVideoBtn"><i class="fas fa-play"></i></a>
-                    <a href="#" class="playPause" id="pauseVideoBtn"><i class="fas fa-pause"></i></a>
-                </div>
-                <div class="progressTime">
-                    <span class="current"></span>
-                    <span class="timeSeparator">/</span>
-                    <span class="duration"></span>
-                </div>
-                <div class="progressBar">
-                    <div class="timeBar"></div>
-                </div>
-            </section>
-            <button id="exitVideoBtn"><i class="fas fa-times"></i>&nbsp;Close</button>
-            <video id="videoPlayer" autoplay>
-                <source src="resources/gucci-gang.mp4" type="video/mp4">
-                Your browser doesn't support HTML5 video. Download the video instead.
-            </video> <!-- poster element for opening image before start of video, make it same dimensions -->
-        </div>
         <div class="wrapper watchNow">
             <button class="hide" id="watchNowBtn" data-hover="Watch Now">Watch Now</button>
         </div>
-        <!-- Listen section -->
-        <section class="section" id="listen-section">
-        </section>
-        <!-- Watch section -->
-        <section class="section" id="watch-section"></section>
-        <!-- Discover section -->
-        <section class="section" id="discover-section"></section>
+        <div class="player">
+            <button id="exitVideoBtn">Go back</button>
+            <div class="mediaplayer">
+                <video poster="resources/video-poster.png" controls preload="none">
+                    <source src="resources/gucci-gang.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="hiddenVideoControls">
+                <table>
+                    <thead>
+                    <th>property</th>
+                    <th>value/control</th>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th>currentTime</th>
+                        <td><span class="current-time"></span>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>duration</th>
+                        <td><span class="duration"></span>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>progress</th>
+                        <td><span class="progress">0</span>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>paused-state</th>
+                        <td><span class="paused-state">false</span>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>muted-state</th>
+                        <td><span class="muted-state">false</span>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>volume</th>
+                        <td><span class="volume">1</span>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>videoWidth/videoHeight</th>
+                        <td><span class="height-width">-/-</span>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>networkState</th>
+                        <td><span class="network-state"></span>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>readyState</th>
+                        <td><span class="ready-state"></span>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>currentTime</th>
+                        <td>
+                            <input class="time-slider" type="range" disabled value="0" step="any" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>play</th>
+                        <td>
+                            <input value="play" type="button" class="play" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>pause</th>
+                        <td>
+                            <input value="pause" type="button" class="pause" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>muted</th>
+                        <td>
+                            <input class="muted" type="checkbox" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>volume</th>
+                        <td>
+                            <input class="volume-slider" type="range" value="1" max="1" step="0.01" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>loadMediaSrc</th>
+                        <td>
+                            <source src="resources/gucci-gang.mp4" type="video/mp4">
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </main>
 
     <!-- Scripts -->
