@@ -3,49 +3,72 @@
     box-sizing: border-box;
 }
 
-html, body{
-    font-family: oswald, sans-serif;
-    font-style: normal;
-    font-size: 5vw;
+html{
+
 }
 
 body{
+    font-family: griffith-gothic-condensed, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 5vw;
+    color: black;
     margin: 0;
     height: 100vh;
     width: 100vw;
     position: relative;
 }
 
-.set-background{
-    background: url(../resources/blue-hands.jpg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
 header{
-    display: flex;
-    justify-content: space-between;
-    padding: 0 2vw 0 2vw;
+    position: absolute;
+    z-index: 10;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    padding: 2vw 2vw 0 2vw;
 }
 
 button{
-    font-family: oswald, sans-serif;
-    outline: none;
+    font-family: griffith-gothic-condensed, sans-serif;
+    text-transform: uppercase;
+    color: black;
 }
 
 a{
     text-decoration: none;
 }
 
-a:hover{
-    cursor: pointer;
-}
-
 ul{
     list-style: none;
     padding: 0;
     margin: 4em 1em 4em 1em;
+}
+
+h1{
+    font-family: griffith-gothic-condensed, sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 5vw;
+    color: black;
+    margin: 0;
+}
+
+:focus {
+    outline: 0;
+}
+
+:hover{
+    cursor: pointer;
+}
+
+
+/* Set background image */
+.set-background{
+    background: url(../resources/blue-hands.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 /* Hide element */
@@ -56,202 +79,122 @@ ul{
 /************************ Enter Page  ************************/
 #enterPageBtn{
     position: fixed;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     background: transparent;
     border: none;
 }
 
-#enterPageBtn:hover{
-    cursor: pointer;
+#enterPageLogo{
+    width: 85%;
+}
+
+/* Zoom animation for logo */
+.kenburns-top {
+    -webkit-animation: kenburns-top 5s ease-out both;
+    animation: kenburns-top 5s ease-out both;
+}
+
+@-webkit-keyframes kenburns-top {
+    0% {
+        -webkit-transform: scale(1) translateY(0);
+        transform: scale(1) translateY(0);
+        -webkit-transform-origin: 50% 16%;
+        transform-origin: 50% 16%;
+    }
+    100% {
+        -webkit-transform: scale(1.25) translateY(-15px);
+        transform: scale(1.25) translateY(-15px);
+        -webkit-transform-origin: top;
+        transform-origin: top;
+    }
+}
+@keyframes kenburns-top {
+    0% {
+        -webkit-transform: scale(1) translateY(0);
+        transform: scale(1) translateY(0);
+        -webkit-transform-origin: 50% 16%;
+        transform-origin: 50% 16%;
+    }
+    100% {
+        -webkit-transform: scale(1.25) translateY(-15px);
+        transform: scale(1.25) translateY(-15px);
+        -webkit-transform-origin: top;
+        transform-origin: top;
+    }
 }
 
 /************************ Navigation  ************************/
 #logo{
-    max-width: 20%;
-    margin: 1em;
+    max-width: 25%;
 }
 
-nav {
-    background:rgba(2,2,2,0.5);
-    z-index: 10;
-    position: fixed;
-    right: 2%;
-    top: 1%;
-    display: none;
-    text-transform: uppercase;
-}
-
-.hamburger {
-    z-index: 11;
-    display: flex;
-    cursor: pointer;
-    transition-property: opacity, filter;
-    transition-duration: 0.10s;
-    transition-timing-function: linear;
-    font: inherit;
-    color: inherit;
-    text-transform: none;
-    background-color: transparent;
-    border: 0;
-    margin: 0;
-    overflow: visible; }
-.hamburger:hover {
-    opacity: 0.7; }
-.hamburger.is-active:hover {
-    opacity: 1; }
-
-.hamburger-box {
-    width: 40px;
-    height: 24px;
-    display: inline-block;
-    position: relative; }
-
-.hamburger-inner {
-    display: block;
-    top: 50%;
-    margin-top: -2px; }
-.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
-    width: 40px;
-    height: 4px;
-    background-color: #2d4867;
-    border-radius: 4px;
-    position: absolute;
-    transition-property: transform;
-    transition-duration: 0.15s;
-    transition-timing-function: ease; }
-.hamburger-inner::before, .hamburger-inner::after {
-    content: "";
-    display: block;}
-.hamburger-inner::before {
-    top: -10px; }
-.hamburger-inner::after {
-    bottom: -10px; }
-
-
-.hamburger--3dx .hamburger-box {
-    perspective: 80px; }
-
-.hamburger--3dx .hamburger-inner {
-    transition: transform 0.15s cubic-bezier(0.645, 0.045, 0.355, 1), background-color 0s 0.1s cubic-bezier(0.645, 0.045, 0.355, 1); }
-.hamburger--3dx .hamburger-inner::before, .hamburger--3dx .hamburger-inner::after {
-    transition: transform 0s 0.1s cubic-bezier(0.645, 0.045, 0.355, 1); }
-
-.hamburger--3dx.is-active .hamburger-inner {
-    background-color: transparent !important;
-    transform: rotateY(180deg); }
-.hamburger--3dx.is-active .hamburger-inner::before {
-    transform: translate3d(0, 10px, 0) rotate(45deg); }
-.hamburger--3dx.is-active .hamburger-inner::after {
-    transform: translate3d(0, -10px, 0) rotate(-45deg); }
-
-.nav-list li {
-    text-align: center;
-    margin: 0 1.5em 1em 1.5em;
-    padding: 0;
-}
-
-.nav-list a {
-    padding: 0.5em 0;
-    color: white;
+.discoverMore{
+    justify-self: flex-end;
     position: relative;
     letter-spacing: 1px;
-    font-size: 10vw;
+    text-transform: uppercase;
+    height: fit-content;
 }
 
-.nav-list a:before,
-.nav-list a:after {
+.discoverMore:before,
+.discoverMore:after {
     position: absolute;
     -webkit-transition: all 0.35s ease;
     transition: all 0.35s ease;
 }
-.nav-list a:before {
+.discoverMore:before {
     bottom: 0;
     display: block;
     height: 3px;
     width: 0%;
     content: "";
     background-color: #104bbe;
+    color: white;
 }
-.nav-list a:after {
+.discoverMore:after {
     left: 0;
     top: 0;
     padding: 0.5em 0;
     position: absolute;
     content: attr(data-hover);
-    color: #ffffff;
+    color: white;
     white-space: nowrap;
     max-width: 0%;
     overflow: hidden;
 }
-.nav-list a:hover:before,
-.nav-list .current a:before {
+.discoverMore:hover:before,
+.discoverMore .current:before {
     opacity: 1;
     width: 100%;
 }
-.nav-list a:hover:after,
-.nav-list .current a:after {
+.discoverMore :hover:after,
+.discoverMore .current:after {
     max-width: 100%;
 }
 
-/************************ Watch Now  ************************/
 #watchNowBtn{
-    font-size: 6vw;
-    font-family: oswald, sans-serif;
     position: absolute;
-    text-align: center;
-    height: auto;
-    right: 15vw;
-    bottom: 25vw;
-    padding: 10px 30px;
-    text-transform: uppercase;
-    color: #2d4867;
-    border-width: 2px;
-    border-style: solid;
-    border-color: #2d4867;
-    opacity: 0.8;
+    font-size: 5vw;
+    font-weight: 800;
+    top: 75vh;
+    right: 20vw;
+    border-radius: 2px;
+    border-color: black;
     background: transparent;
-}
-
-#watchNowBtn:before {
-    display: block;
-    height: 3px;
-    bottom: 0;
-    width: 0%;
-    content: "";
-    background: #104bbe;
-    transition: all 0.35s ease;;
-    -webkit-transition: all 0.35s ease;;
-}
-
-#watchNowBtn:hover{
-    cursor: pointer;
-    background: #2d4867;
-    color: #ffffff;
-    transition: all 0.35s ease;;
-    -webkit-transition: all 0.35s ease;;
-}
-
-#watchNowBtn:hover:before,
-#watchNowBtn .current:before {
-    transition: all 0.35s ease;;
-    -webkit-transition: all 0.35s ease;;
-    opacity: 1;
-    width: 100%;
-}
-#watchNowBtn:hover:after,
-#watchNowBtn .current:after {
-    max-width: 100%;
+    padding: 0.5em 1em;
 }
 
 /************************ Video player  ************************/
 .player {
-    margin: auto;
-    padding: 10px;
-    max-width: 80vw;
-    min-width: 30vw;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
 }
+
 .mediaplayer {
     position: relative;
     height: 0;
@@ -261,7 +204,7 @@ nav {
 }
 .mediaplayer video, .mediaplayer .polyfill-video {
     position: absolute;
-    top: 0;
+    top: 50vw;
     left: 0;
     height: 100%;
     width: 100%;
@@ -271,94 +214,41 @@ nav {
     visibility: hidden;
 }
 
-#exitVideoBtn{
-    position: relative;
-    height: 45px;
-    width: 150px;
-    margin: 10px 7px;
-    padding: 5px 5px;
-    color: #383736;
-    border:none;
-    text-transform: uppercase;
-    outline: 0;
-    overflow:hidden;
-    background: none;
-    z-index: 1;
-    cursor: pointer;
-    transition:         0.08s ease-in;
-    -o-transition:      0.08s ease-in;
-    -ms-transition:     0.08s ease-in;
-    -moz-transition:    0.08s ease-in;
-    -webkit-transition: 0.08s ease-in;
-}
-#exitVideoBtn:before{
-    content:"←";
-    position:absolute;
-    color:#383736;
-    right: 78%;
-    opacity: 0;
-    -webkit-transition: all 0.2s ease-in;
-}
-
-#exitVideoBtn:hover:before{
-    right:81%;
-    opacity:1;
-}
-
-#exitVideoBtn:hover {
-    -webkit-transform: scale(1.04,1.04);
-    -webkit-transition: transform 250ms cubic-bezier(0.680, -0.550, 0.265, 1.550);
-}
-
 /************************ Media Queries ************************/
 
 @media screen and (min-width: 700px){
-    /* Navigation */
-    nav{
-        display: flex;
-        flex-flow: column;
-        padding: 0;
-        right: 1%;
-        top: 3%;
+    #enterPageLogo{
+        width: 35%;
     }
 
-    nav ul{
-        padding: 0;
-        margin: 0.5em 2em 1em 2em;
+    h1{
+        font-size: 2vw;
     }
 
-    .nav-list li{
-        margin: 0;
+    header{
+        padding: 1vw 1vw 0 1vw;
     }
 
     #logo{
-        max-width: 30%;
+        max-width: 10%;
         margin: 0;
     }
 
-    nav a{
-        display: inline-block;
-        padding: 0;
+    .discoverMore{
+        align-self: baseline;
     }
 
-    .nav-list a{
-        font-size: 2.5vw;
-        color: rgba(255, 255, 255, 0.5);
+    .discoverMore h1:hover{
+        -webkit-transition: all 0.35s ease;
+        transition: all 0.35s ease;
+        color: white;
+    }
+
+    .mediaplayer video, .mediaplayer .polyfill-video {
+        top: 0;
     }
 
     #videoContainer{
         font-size: 1.5vw;
     }
-
-    #watchNowBtn{
-        font-size: 1.5vw;
-        right: 30vw;
-        bottom: 5vw;
-        padding: 20px 40px;
-    }
-
-    #exitVideoBtn{
-        font-size: 1.5vw;
-    }
-
 }

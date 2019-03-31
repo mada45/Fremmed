@@ -7,36 +7,22 @@
     <meta name="viewport" content="width=device-width" shrink-to-fit="no">
     <link rel="stylesheet" href="css/page-style.css">
     <!-- Font -->
-    <link rel="stylesheet" href="https://use.typekit.net/tqc1dll.css">
+    <link rel="stylesheet" href="https://use.typekit.net/ijb2qbx.css">
     <!-- Icons -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
 <body>
     <header>
         <!-- Logo -->
-        <a href="index.html"><img src="resources/circle-logo.png" id="logo" alt="logo"></a>
-        <!-- Burger menu button -->
-        <button class="hamburger hamburger--3dx" type="button">
-            <span class="hamburger-box">
-               <span class="hamburger-inner"></span>
-            </span>
-        </button>
-        <!-- Burger menu content -->
-        <nav class="breadcrumb">
-            <ul class="nav-list">
-                <li><a class="breadcrumbItem" type="button" data-hover="Listen">Listen</a></li>
-                <li><a class="breadcrumbItem" type="button" data-hover="Watch">Watch</a></li>
-                <li><a class="breadcrumbItem" type="button" data-hover="Discover">Discover</a></li>
-            </ul>
-        </nav>
+        <a href="index.html"><img src="resources/logo.png" id="logo" alt="logo"></a>
+        <a href="discoverMore.html" class="discoverMore" type="button" data-hover="Discover"><h1>Discover more</h1></a>
     </header>
     <main>
-        <button type="button" id="enterPageBtn"><img src="resources/circle-logo.png" id="enter-page-logo" alt="logo"></button>
-        <button class="hide" type="button" id="watchNowBtn" data-hover="Watch Now">Watch Now</button>
+        <button type="button" id="enterPageBtn"><img src="resources/logo.png" id="enterPageLogo" alt="logo"></button>
+        <button type="button" id="watchNowBtn">Watch now</button>
         <div class="player">
-            <button id="exitVideoBtn">Go back</button>
             <div class="mediaplayer">
-                <video poster="resources/video-poster.png" controls preload="none">
+                <video id="video" poster="resources/video-poster.png" controls preload="none">
                     <source src="resources/gucci-gang.mp4" type="video/mp4">
                 </video>
             </div>

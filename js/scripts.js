@@ -2,58 +2,54 @@
 $(() => {
     // ** Variables ** //
     var $enterPageBtn = $("#enterPageBtn");
-    var $backgroundImage = $("body");
-    var $header = $("header");
-    var $nav = $("nav");
-    var $hamburger = $(".hamburger");
-    var $breadcrumbItem = $('.breadcrumbItem');
+    var $enterPageLogo = $("#enterPageLogo");
     var $watchNowBtn = $("#watchNowBtn");
+    var $header = $("header");
+    var $body = $("body");
     var $player = $('.player');
-    var $mediaplayer = $ ("#mediaplayer");
     var $hiddenVideoControls = $('.hiddenVideoControls');
-    var $exitVideoBtn = $("#exitVideoBtn");
 
     // ** Hide on page load ** //
     $header.addClass('hide');
-    $nav.addClass('hide');
     $watchNowBtn.addClass('hide');
     $player.addClass('hide');
     $hiddenVideoControls.addClass('hide');
+    $enterPageLogo.addClass('kenburns-top');
 
-    // ** Enter page ** //
+
+    // ** Enter page button ** //
     $enterPageBtn.click(function(){
+        $(this).hide();
+        $body.addClass('set-background');
         $header.removeClass('hide');
-        $watchNowBtn.removeClass('hide');
-        $backgroundImage.addClass('set-background');
-        $(this).hide();
+        if (window.matchMedia("(min-width: 700px)").matches) {
+            $player.removeClass('hide');
+            $('video', $player)[0].play();
+        } else {
+            $watchNowBtn.removeClass('hide');
+        }
     });
 
-    // ** Burger menu ** //
-    $hamburger.click(function(){
-        $hamburger.toggleClass("is-active");
-        $nav.show();
-        $nav.toggleClass('hide');
-    });
-
-    // ** Watch Now ** //
+    // ** Watch Now button ** //
     $watchNowBtn.click(function(){
-        $(this).hide();
-        $header.hide();
-        $exitVideoBtn.show();
-        //$backgroundImage.removeClass('set-background');
         $player.removeClass('hide');
-        $('video, audio', $player)[0].play();
+        toggleFullscreen();
+        $('video', $player)[0].play();
+        $(this).hide();
     });
 
-    // ** Exit video ** //
-    $exitVideoBtn.click(function(){
-        $(this).hide();
-        $header.show();
-        $watchNowBtn.show();
-        $player.addClass('hide');
-        $backgroundImage.addClass('set-background');
-        $('video, audio', $player)[0].pause();
-    });
+    function toggleFullscreen() {
+        let elem = document.querySelector("video");
+
+        if (!document.fullscreenElement) {
+            elem.requestFullscreen().then({}).catch(err => {
+                alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+            });
+        } else {
+            document.exitFullscreen();
+        }
+    }
+
 }); //END DOM ready
 
 if (window.webshim) {
