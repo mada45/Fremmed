@@ -4,13 +4,14 @@ $(() => {
     var $enterPageBtn = $("#enterPageBtn");
     var $enterPageLogo = $("#enterPageLogo");
     var $watchNowBtn = $("#watchNowBtn");
-    var $header = $("header");
+    var $discoverMoreBtn = $("#discoverMoreBtn");
+    var $headerStartPage = $(".headerStartPage");
     var $body = $("body");
     var $player = $('.player');
     var $hiddenVideoControls = $('.hiddenVideoControls');
 
     // ** Hide on page load ** //
-    $header.addClass('hide');
+    $headerStartPage.addClass('hide');
     $watchNowBtn.addClass('hide');
     $player.addClass('hide');
     $hiddenVideoControls.addClass('hide');
@@ -21,7 +22,7 @@ $(() => {
     $enterPageBtn.click(function(){
         $(this).hide();
         $body.addClass('set-background');
-        $header.removeClass('hide');
+        $headerStartPage.removeClass('hide');
         if (window.matchMedia("(min-width: 700px)").matches) {
             $player.removeClass('hide');
             $('video', $player)[0].play();
@@ -49,6 +50,15 @@ $(() => {
             document.exitFullscreen();
         }
     }
+
+    // ** Discover More button ** //
+    $discoverMoreBtn.click(function(){
+        $player.removeClass('hide');
+        toggleFullscreen();
+        $('video', $player)[0].play();
+        $(this).hide();
+    });
+
 
 }); //END DOM ready
 
