@@ -1,9 +1,9 @@
 //DOM ready
 $(() => {
     // ** Variables ** //
-    const $header = $("header");
-    const $main =$("main");
+    const $startView = $('#startView');
     const $enterPageBtn = $("#enterPageBtn");
+    const $enterPageTxt = $("#enterPageTxt");
     const $enterPageLogo = $("#enterPageLogo");
     const $hamburger = $(".hamburger");
     const $nav = $("nav");
@@ -13,7 +13,6 @@ $(() => {
     const $handsVideo = $(".handsVideo");
     const $handsVideoMobile = $('#handsVideoMobile');
     const $handsVideoWeb = $('#handsVideoWeb');
-    const $videoBox = $('#video_player_box');
     const $playDeidreBtn = $("#playDeidreBtn");
     const $deidreVideo = $('.deidreVideo');
     const $videoControls = $(".videoControls");
@@ -23,7 +22,7 @@ $(() => {
     const $muteBtn = $("#muteBtn");
     const $loudBtn = $("#loudBtn");
     let $progressBar = $('.progressBar');
-    let $timeBar = $('#timeBar');
+    const $timeBar = $('#timeBar');
     const $current =  $('#current');
     const $duration =  $('#duration');
     const $exitBtn = $('#exitBtn');
@@ -39,12 +38,19 @@ $(() => {
     $discoverMoreMain.hide();
     $footer.hide();
 
-    // ** Enter page button ** //
+    // ** Enter page function ** //
     $enterPageBtn.click(function(){
-        $(this).hide();
+        loadHomepage();
+    });
+
+    $enterPageTxt.click(function(){
+        loadHomepage();
+    });
+
+    function loadHomepage(){
+        $startView.hide();
         $homeBtn.hide();
         $discoverFremmedBtn.show();
-        $main.show();
         $logoBtn.show();
         if (window.matchMedia("(min-width: 700px)").matches) {
             $hamburger.hide();
@@ -56,12 +62,12 @@ $(() => {
             $handsVideoMobile.show();
             $handsVideoMobile[0].play();
         }
-    });
+    }
 
     // ** Logo button ** //
     $logoBtn.click(function(){
-        $main.hide();
-        $enterPageBtn.show();
+        location. reload(true);
+        $startView.show();
     });
 
     // ** Hamburger menu ** //
@@ -140,18 +146,20 @@ $(() => {
 
     //get HTML5 video time duration
     $deidreVideo.on('loadedmetadata', function() {
-        $duration.text($deidreVideo[0].duration);
+        var minutes = Math.floor($deidreVideo[0].duration / 60);
+        var seconds = Math.floor($deidreVideo[0].duration);
+        $duration.text(minutes+':'+seconds);
     });
 
     //update HTML5 video current play time
     $deidreVideo.on('timeupdate', function() {
-        $current.text($deidreVideo[0].currentTime);
+        var minutes = Math.floor($deidreVideo[0].currentTime / 60);
+        var seconds = Math.floor($deidreVideo[0].currentTime);
+        $current.text(minutes+':'+seconds);
     });
 
     $deidreVideo.on('timeupdate', function() {
-        var currentPos = $deidreVideo[0].currentTime; //Get currenttime
-        var maxduration = $deidreVideo[0].duration; //Get video duration
-        var percentage = 100 * currentPos / maxduration; //in %
+        var percentage = 100 * $deidreVideo[0].currentTime / $deidreVideo[0].duration;
         $timeBar.css('width', percentage+'%');
     });
 
@@ -175,10 +183,8 @@ $(() => {
     });
 
     var updateProgressBar = function(x) {
-        var progress = $('.progressBar');
-        var maxduration = $deidreVideo[0].duration; //Video duraiton
-        var position = x - progress.offset().left; //Click pos
-        var percentage = 100 * position / progress.width();
+        var position = x - $progressBar.offset().left;
+        var percentage = 100 * position / $progressBar.width();
 
         //Check within range
         if(percentage > 100) {
@@ -189,8 +195,8 @@ $(() => {
         }
 
         //Update progress bar and video currenttime
-        $('.timeBar').css('width', percentage+'%');
-        $deidreVideo[0].currentTime = maxduration * percentage / 100;
+        $timeBar.css('width', percentage+'%');
+        $deidreVideo[0].currentTime = $deidreVideo[0].duration * percentage / 100;
     };
 
 
@@ -221,6 +227,7 @@ $(() => {
 
     // ** Discover Fremmed button ** //
     $discoverFremmedBtn.click(function(){
+        $('body').css('overflow-y', 'visible');
         if($deidreVideo[0].played) {
             $deidreVideo[0].pause();
         }
@@ -228,6 +235,7 @@ $(() => {
         $handsVideo.hide();
         $logoBtn.show();
         $homeBtn.show();
+        $homeBtn.css('bottom','40%');
         $discoverMoreMain.show();
         $footer.show();
         if (window.matchMedia("(min-width: 700px)").matches) {
@@ -242,6 +250,8 @@ $(() => {
 
     // ** Home button ** //
     $homeBtn.click(function(){
+        window.scrollTo(0, 0);
+        $('body').css('overflow-y', 'hidden');
         $(this).hide();
         $deidreVideo[0].pause();
         $discoverFremmedBtn.show();

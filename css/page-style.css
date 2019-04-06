@@ -22,10 +22,11 @@ body{
     font-weight: 300;
     font-style: normal;
     color: var(--black);
-    margin: 0;
     position: relative;
-    max-height: 100vh;
-    max-width: 100vw;
+}
+
+header{
+    display:block;
 }
 
 button{
@@ -76,7 +77,20 @@ button:hover, a:hover{
     display: none !important;
 }
 
-/************************ Enter Page  ************************/
+/************************ Start view  ************************/
+#startView{
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+#enterPageTxt h6{
+    text-transform: lowercase;
+    font-weight: 100;
+    padding: 2em;
+}
+
 #enterPageBtn{
     position: fixed;
     top: 40%;
@@ -126,10 +140,15 @@ button:hover, a:hover{
 }
 
 /************************ Navigation  ************************/
-#logo{
-    display: block;
-    max-width: 20%;
-    padding: 2vw;
+#logo {
+    max-width: 60px;
+}
+
+#logoBtn{
+    position: absolute;
+    top: 1%;
+    left: 3%;
+    z-index: 99;
 }
 
 nav{
@@ -144,13 +163,13 @@ nav{
 }
 
 .navBtn{
-    display: inline-block;
-    border: solid 2px #B73B3B;
     padding: 2vw 0 2vw 0;
     color: #2b2b2b;
+    transform: rotate(180deg);
+    border: solid 2px #B73B3B;
 }
 
-/*.navBtn::after {
+.navBtn::after {
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     -o-transition: all 0.3s;
@@ -163,8 +182,8 @@ nav{
 
 .navBtn::before,
 .navBtn::after {
-    background: #2c3cad;
-    border-color: #2c3cad;
+    background: #B73B3B;
+    border-color: #B73B3B;
     content: '';
     position: absolute;
     z-index: -1;
@@ -176,23 +195,19 @@ nav{
 
 .navBtn h1:hover:after {
     width: 100%;
-}*/
+}
 
 .navBtn h1{
     padding: 0;
     font-size: 10vw;
     margin: 0;
     writing-mode: vertical-lr;
-    transform: rotate(-180deg);
 }
 
-#logoBtn{
-    position: absolute;
-    display: block;
-    top: 0;
-    left: 0;
-    z-index: 99;
-}
+/*.navBtn h1:hover{
+    color: #B73B3B;
+}*/
+
 
 #homeBtn{
     display: none;
@@ -202,7 +217,7 @@ nav{
     display: inline-block;
     position: absolute;
     right: 0;
-    padding: 10vw 5vw 10vw 5vw;
+    padding: 10vw 4vw 10vw 4vw;
     z-index: 100;
     justify-self: end;
     cursor: pointer;
@@ -270,8 +285,9 @@ nav{
     display: none;
     position: fixed;
     right: 0;
-    height: auto;
-    max-width: 100%;
+    bottom: 0;
+    max-height: 100vw;
+    width: 100vw;
 }
 
 .deidreVideo{
@@ -280,7 +296,7 @@ nav{
 
 .videoControls{
     display: none;
-    position: absolute;
+    position: fixed;
     z-index: 10;
     width: 100%;
     padding: 0.5vw;
@@ -352,17 +368,27 @@ nav{
     display: flex;
     flex-flow: column;
     align-items: center;
-    padding: 40vw 3vw 15vw 3vw;
+    padding: 40vw 5vw 15vw 5vw;
+}
+
+.paragraph{
+    letter-spacing: 1px;
+    word-spacing: 9px;
+}
+
+.paragraph strong{
+    color: #B73B3B;
+    font-size: 5.5vw;
 }
 
 #bandNamePng{
     max-width: 40%;
-    margin: 1vw 0 10vw 0;
+    margin: 0 0 8vw 0;
 }
 
 #bandImage{
     width: 100%;
-    padding: 10vw 0 10vw 0;
+    padding: 0 0 10vw 0;
 }
 
 /*************************** Footer ****************************/
@@ -395,18 +421,26 @@ footer img{
 
 /************************ Media Queries ************************/
 
-@media screen and (min-width: 700px){
+@media screen and (min-width: 600px){
     #enterPageLogo{
         width: 30%;
     }
 
+    #enterPageTxt h6{
+        font-size: 1.2vw;
+        bottom: 5%;
+        left: 45%;
+    }
+
     #logoBtn {
         position: absolute;
+        left: 3%;
+        top: 3%;
         padding: 0;
     }
 
-    button, h1{
-        padding: 0 3vw 0 3vw;
+    #logo{
+        max-width: 110px;
     }
 
     nav {
@@ -423,16 +457,14 @@ footer img{
     }
 
     #homeBtn, #discoverFremmedBtn{
-        left: 3%;
+        left: 4%;
+        bottom: 28%;
     }
 
     #playDeidreBtn{
-        right: 3%;
-    }
+        right: 4%;
+        bottom: 28%;
 
-    #logo{
-        max-width: 15%;
-        padding: 1.5vw;
     }
 
     .deidreVideo{
@@ -455,13 +487,19 @@ footer img{
 
     /* Discover Page */
     .discoverMoreMain {
-        padding: 11vw 10vw 10vw 10vw;
+        padding: 7vw 10vw 0 10vw;
         flex-flow: column;
     }
 
     .paragraph{
         width: 50vw;
         font-size: 1.3vw;
+        letter-spacing: 1px;
+        word-spacing: 9px;
+    }
+
+    .paragraph strong{
+        font-size: 1.6vw;
     }
 
     #bandImage{
@@ -471,11 +509,11 @@ footer img{
 
     footer{
         flex-flow: row;
-        padding: 3vw;
+        padding: 5vw;
     }
 
     footer img {
-        max-width: 2.5vw;
+        max-width: 2.2vw;
         padding: 0;
     }
 

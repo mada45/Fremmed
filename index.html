@@ -12,7 +12,10 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     </head>
     <body>
-        <button id="enterPageBtn"><img src="resources/logo.png" id="enterPageLogo" alt="logo"></button>
+        <section id="startView">
+            <button type="button" id="enterPageBtn"><img src="resources/logo.png" id="enterPageLogo" alt="logo"></button>
+            <button  type="button" id="enterPageTxt"><h6>click to continue..</h6></button>
+        </section>
         <main>
             <header>
                 <!-- Logo -->
@@ -26,9 +29,9 @@
             </header>
             <!-- Home View -->
             <nav>
-                <button class="navBtn" id="homeBtn" type="button" data-hover="Home"><h1>Home</h1></button>
-                <button class="navBtn" id="discoverFremmedBtn" type="button" data-hover="Discover Fremmed"><h1>Discover Fremmed</h1></button>
-                <button class="navBtn" id="playDeidreBtn" type="button" data-hover="Play new song Deidre"><h1>Play new song 'Deidre'</h1></button>
+                <a class="navBtn" id="homeBtn" type="button"><h1>Home</h1></a>
+                <a class="navBtn" id="discoverFremmedBtn" type="button"><h1>Discover Fremmed</h1></a>
+                <a class="navBtn" id="playDeidreBtn" type="button"><h1>Play new song 'Deidre'</h1></a>
             </nav>
 
             <video class="handsVideo" id="handsVideoMobile" autoplay loop muted>
@@ -66,10 +69,11 @@
             <!-- Discover View -->
             <section class="discoverMoreMain">
                 <img id="bandNamePng" src="resources/logo-text.png">
-                <p class="paragraph" id="paragraph1">Fremmed are a post-punk metal band hailing from Denmark and the Faroe Islands, that are currently based in Copenhagen.
-                    Their drive is to make sense of the world, which each of them have struggled with from time to time. For them, to make music is one way of
-                    &#39;interpreting&#39; an undefinable sense of not belonging anywhere.<br><br>The emotional experience of homelessness and loneliness is not always
-                    something that can be put into words - and in that way, their music can express it without interpreting it.
+                <p class="paragraph" id="paragraph1">We are Fremmed, a post-punk metal band hailing from Denmark and the Faroe Islands,
+                    that are currently based in Copenhagen. Our drive is to make sense of the world, which each of us struggles with from time to time.
+                    For us, to make music is one way of &#39;interpreting&#39; an undefinable sense of not belonging anywhere. <br><br>The emotional experience
+                    of homelessness and loneliness is not always something that can be put into words - and in that way, their music can express it without
+                    interpreting it.
                 </p>
                 <img src="resources/the-band.jpg" id="bandImage">
                 <p class="paragraph" id="paragraph2">
