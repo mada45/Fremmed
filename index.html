@@ -2,9 +2,9 @@
 <html lang="en">
     <head>
         <title>Fremmed</title>
-        <!-- Don't index page -->
+        <!-- Don't index the page -->
         <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-        <meta name="viewport" content="width=device-width" shrink-to-fit="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/page-style.css">
         <!-- Font -->
         <link rel="stylesheet" href="https://use.typekit.net/ijb2qbx.css">
@@ -12,127 +12,103 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     </head>
     <body>
-        <header class="headerStartPage">
-            <!-- Logo -->
-            <a href="index.html"><img src="resources/logo.png" id="logo" alt="logo"></a>
-            <button type="button" class="discoverMoreBtn"><a href="discoverMore.html" class="discoverMore" type="button" data-hover="Discover"><h1>Discover more</h1></a></button>
-        </header>
+        <button id="enterPageBtn"><img src="resources/logo.png" id="enterPageLogo" alt="logo"></button>
         <main>
-            <button type="button" id="enterPageBtn"><img src="resources/logo.png" id="enterPageLogo" alt="logo"></button>
-            <button type="button" id="watchNowBtn">Watch now</button>
-            <div class="player">
-                <div class="mediaplayer">
-                    <video id="video" poster="resources/video-poster.png" controls preload="none">
-                        <source src="resources/gucci-gang.mp4" type="video/mp4">
-                    </video>
+            <header>
+                <!-- Logo -->
+                <a id="logoBtn" type="button"><img src="resources/logo-no-name.png" id="logo" alt="logo"></a>
+                <!-- Burger Menu -->
+                <button class="hamburger hamburger--3dx" type="button">
+                    <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                    </span>
+                </button>
+            </header>
+            <!-- Home View -->
+            <nav>
+                <button class="navBtn" id="homeBtn" type="button" data-hover="Home"><h1>Home</h1></button>
+                <button class="navBtn" id="discoverFremmedBtn" type="button" data-hover="Discover Fremmed"><h1>Discover Fremmed</h1></button>
+                <button class="navBtn" id="playDeidreBtn" type="button" data-hover="Play new song Deidre"><h1>Play new song 'Deidre'</h1></button>
+            </nav>
+
+            <video class="handsVideo" id="handsVideoMobile" autoplay loop muted>
+                <source src="resources/blue-hands-mobile.mp4" type="video/mp4">
+                Your browser doesn't support HTML5 video. Download the video instead.
+            </video>
+
+            <video class="handsVideo" id="handsVideoWeb" autoplay loop muted>
+                <source src="resources/blue-hands-web.mp4" type="video/mp4">
+                Your browser doesn't support HTML5 video. Download the video instead.
+            </video>
+
+            <!-- Deidre View -->
+            <div id="video_player_box">
+                <div class="videoControls">
+                    <button class="videoControlBtn" id="fullscreenBtn"><img src="resources/expand-solid.svg"></button>
+                    <button class="videoControlBtn" id="playBtn"><img src="resources/play.svg"></button>
+                    <button class="videoControlBtn" id="pauseBtn"><img src="resources/pause.svg"></button>
+                    <button class="videoControlBtn" id="muteBtn"><img src="resources/mute-on.svg"></button>
+                    <button class="videoControlBtn" id="loudBtn"><img src="resources/mute-off.svg"></button>
+                    <div class="progressBar">
+                        <span id="timeBar"></span>
+                        <span id="bufferBar"></span>
+                    </div>
+                    <span class="videoControlBtn" id="current"></span>
+                    <span class="videoControlBtn" id="timeSeparator">/</span>
+                    <span class="videoControlBtn" id="duration"></span>
+                    <button class="videoControlBtn" id="exitBtn"><img src="resources/close.svg"></button>
                 </div>
-                <div class="hiddenVideoControls">
-                    <table>
-                        <thead>
-                        <th>property</th>
-                        <th>value/control</th>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <th>currentTime</th>
-                            <td><span class="current-time"></span>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>duration</th>
-                            <td><span class="duration"></span>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>progress</th>
-                            <td><span class="progress">0</span>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>paused-state</th>
-                            <td><span class="paused-state">false</span>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>muted-state</th>
-                            <td><span class="muted-state">false</span>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>volume</th>
-                            <td><span class="volume">1</span>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>videoWidth/videoHeight</th>
-                            <td><span class="height-width">-/-</span>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>networkState</th>
-                            <td><span class="network-state"></span>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>readyState</th>
-                            <td><span class="ready-state"></span>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>currentTime</th>
-                            <td>
-                                <input class="time-slider" type="range" disabled value="0" step="any" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>play</th>
-                            <td>
-                                <input value="play" type="button" class="play" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>pause</th>
-                            <td>
-                                <input value="pause" type="button" class="pause" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>muted</th>
-                            <td>
-                                <input class="muted" type="checkbox" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>volume</th>
-                            <td>
-                                <input class="volume-slider" type="range" value="1" max="1" step="0.01" />
-                            </td>
-                        </tr>
-
-                        </tbody>
-                    </table>
-                </div>
+                <video class="deidreVideo" muted>
+                    <source src="resources/gucci-gang.mp4" type="video/mp4">
+                    Your browser doesn't support HTML5 video. Download the video instead.
+                </video>
             </div>
+            <!-- Discover View -->
+            <section class="discoverMoreMain">
+                <img id="bandNamePng" src="resources/logo-text.png">
+                <p class="paragraph" id="paragraph1">Fremmed are a post-punk metal band hailing from Denmark and the Faroe Islands, that are currently based in Copenhagen.
+                    Their drive is to make sense of the world, which each of them have struggled with from time to time. For them, to make music is one way of
+                    &#39;interpreting&#39; an undefinable sense of not belonging anywhere.<br><br>The emotional experience of homelessness and loneliness is not always
+                    something that can be put into words - and in that way, their music can express it without interpreting it.
+                </p>
+                <img src="resources/the-band.jpg" id="bandImage">
+                <p class="paragraph" id="paragraph2">
+                    <strong>History</strong><br><br>
+                    The band was formed in 2013 by the lead singer, Atli Kamban, guitarist, Niels Asger Svensson and and Linus
+                    Nicolaj Carlsen who plays the drums.<br><br>Fremmed has been in a process of forming since a few of the members met in high school, having gone
+                    through all sort of shifts and changes to reach the point where they are today. They have been experimenting with different forms of music for
+                    years, starting from a folkish sound to the post punk metal you hear today.<br><br>They have had several name changes in the past as they started
+                    out with <q>Drowned</q>, then <q>Drowned Sessions</q>, but with the shift in their music they felt it was time to reflect those changes in the band's
+                    name and identity - welcoming Fremmed.
+                </p>
+                <p class="paragraph" id="paragraph3">
+                    <strong>Releases</strong><br><br>
+                    Fremmed released an EP called <q>Conversation with Cora</q> in 2013. Later, in 2014 they released <q>Horses</q>, and then their full length album,
+                    called <q>Home to the Wind</q>.<br><br>Link to soundcloud.com
+                </p>
+                <p class="paragraph" id="paragraph4">
+                    <strong>Performances</strong><br><br>
+                    They have played at Loppen in Christiania and The Bunker in N&#248;rrebro in Denmark. See here where they will perform next.
+                </p>
+            </section>
+            <!-- Social media buttons -->
+            <footer>
+                <!--<h5>connect</h5>-->
+                <span class="footerIcons">
+                    <button class="footerIconBtn"><img src="resources/facebook.svg"></button>
+                    <button class="footerIconBtn"><img src="resources/instagram.svg"></button>
+                    <button class="footerIconBtn"><img src="resources/spotify.svg"></button>
+                    <button class="footerIconBtn"><img src="resources/youtube.svg"></button>
+                </span>
+            </footer>
         </main>
-
         <!-- Scripts -->
         <!-- First try loading jQuery from Google's CDN -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
         <!-- Fall back to a local copy of jQuery if the CDN fails (downloaded from http://jquery.com/)  -->
         <script>
             window.jQuery || document.write('<script src="js/jquery-3.3.1.min.js"><\/script>');
         </script>
-
         <!-- now we can write jQuery or JavaScript in our own files -->
         <script src="js/scripts.js"></script>
     </body>

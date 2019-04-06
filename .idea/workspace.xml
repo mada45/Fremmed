@@ -4,9 +4,7 @@
     <list default="true" id="923198df-bd2f-4520-bece-b7ad91821bcd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/page-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/page-style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/discoverMore.html" beforeDir="false" afterPath="$PROJECT_DIR$/discoverMore.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/scripts.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,22 +17,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="22" column="32" lean-forward="true" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
+            <state relative-caret-position="75">
+              <caret line="5" column="56" lean-forward="true" selection-start-line="5" selection-start-column="56" selection-end-line="5" selection-end-column="56" />
               <folding>
-                <element signature="n#head#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#div#1;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/css/page-style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="213" lean-forward="true" selection-start-line="213" selection-end-line="213" />
+            <state relative-caret-position="346">
+              <caret line="143" column="17" selection-start-line="143" selection-start-column="17" selection-end-line="143" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -42,13 +38,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/scripts.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="41" lean-forward="true" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
+            <state relative-caret-position="150">
+              <caret line="10" column="57" lean-forward="true" selection-start-line="10" selection-start-column="57" selection-end-line="10" selection-end-column="57" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/discoverMore.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
@@ -109,15 +105,16 @@
         <option value="$PROJECT_DIR$/../projects/Wedding Planner/css/home.css" />
         <option value="$PROJECT_DIR$/css/hamburgers.css" />
         <option value="$PROJECT_DIR$/js/scripts.js" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/discoverMore.html" />
+        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/css/page-style.css" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="y" value="23" />
     <option name="width" value="1680" />
-    <option name="height" value="1050" />
+    <option name="height" value="1027" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -183,12 +180,13 @@
       <workItem from="1553619125625" duration="40621000" />
       <workItem from="1553783595629" duration="100000" />
       <workItem from="1553785665668" duration="9694000" />
-      <workItem from="1553800524738" duration="21051000" />
+      <workItem from="1553800524738" duration="21220000" />
+      <workItem from="1554193629879" duration="824000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85625000" />
+    <option name="totallyTimeSpent" value="86618000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -203,7 +201,7 @@
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27106228" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2741148" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -279,27 +277,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/hamburgers.css" />
-    <entry file="file://$PROJECT_DIR$/css/page-style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="213" lean-forward="true" selection-start-line="213" selection-end-line="213" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/scripts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="41" lean-forward="true" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="22" column="32" lean-forward="true" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
+        <state relative-caret-position="75">
+          <caret line="5" column="56" lean-forward="true" selection-start-line="5" selection-start-column="56" selection-end-line="5" selection-end-column="56" />
           <folding>
-            <element signature="n#head#0;n#html#0;n#!!top" />
-            <element signature="n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#1;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" />
           </folding>
         </state>
@@ -309,6 +291,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" column="83" selection-start-line="16" selection-start-column="83" selection-end-line="16" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/scripts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="57" lean-forward="true" selection-start-line="10" selection-start-column="57" selection-end-line="10" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/page-style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="143" column="17" selection-start-line="143" selection-start-column="17" selection-end-line="143" selection-end-column="17" />
         </state>
       </provider>
     </entry>

@@ -1,214 +1,262 @@
 //DOM ready
 $(() => {
     // ** Variables ** //
-    var $enterPageBtn = $("#enterPageBtn");
-    var $enterPageLogo = $("#enterPageLogo");
-    var $watchNowBtn = $("#watchNowBtn");
-    var $discoverMoreBtn = $("#discoverMoreBtn");
-    var $headerStartPage = $(".headerStartPage");
-    var $body = $("body");
-    var $player = $('.player');
-    var $hiddenVideoControls = $('.hiddenVideoControls');
+    const $header = $("header");
+    const $main =$("main");
+    const $enterPageBtn = $("#enterPageBtn");
+    const $enterPageLogo = $("#enterPageLogo");
+    const $hamburger = $(".hamburger");
+    const $nav = $("nav");
+    const $logoBtn = $("#logoBtn");
+    const $discoverFremmedBtn = $("#discoverFremmedBtn");
+    const $homeBtn = $("#homeBtn");
+    const $handsVideo = $(".handsVideo");
+    const $handsVideoMobile = $('#handsVideoMobile');
+    const $handsVideoWeb = $('#handsVideoWeb');
+    const $videoBox = $('#video_player_box');
+    const $playDeidreBtn = $("#playDeidreBtn");
+    const $deidreVideo = $('.deidreVideo');
+    const $videoControls = $(".videoControls");
+    const $fullscreenBtn = $("#fullscreenBtn");
+    const $pauseBtn = $("#pauseBtn");
+    const $playBtn = $("#playBtn");
+    const $muteBtn = $("#muteBtn");
+    const $loudBtn = $("#loudBtn");
+    let $progressBar = $('.progressBar');
+    let $timeBar = $('#timeBar');
+    const $current =  $('#current');
+    const $duration =  $('#duration');
+    const $exitBtn = $('#exitBtn');
+    const $discoverMoreMain = $('.discoverMoreMain');
+    const $footer = $("footer");
 
     // ** Hide on page load ** //
-    $headerStartPage.addClass('hide');
-    $watchNowBtn.addClass('hide');
-    $player.addClass('hide');
-    $hiddenVideoControls.addClass('hide');
     $enterPageLogo.addClass('kenburns-top');
-
+    $logoBtn.hide();
+    $hamburger.hide();
+    $nav.hide();
+    $handsVideo.hide();
+    $discoverMoreMain.hide();
+    $footer.hide();
 
     // ** Enter page button ** //
     $enterPageBtn.click(function(){
         $(this).hide();
-        $body.addClass('set-background');
-        $headerStartPage.removeClass('hide');
+        $homeBtn.hide();
+        $discoverFremmedBtn.show();
+        $main.show();
+        $logoBtn.show();
         if (window.matchMedia("(min-width: 700px)").matches) {
-            $player.removeClass('hide');
-            $('video', $player)[0].play();
-        } else {
-            $watchNowBtn.removeClass('hide');
+            $hamburger.hide();
+            $nav.show();
+            $handsVideoWeb.show();
+            $handsVideoWeb[0].play();
+        }else {
+            $hamburger.show();
+            $handsVideoMobile.show();
+            $handsVideoMobile[0].play();
         }
     });
 
-    // ** Watch Now button ** //
-    $watchNowBtn.click(function(){
-        $player.removeClass('hide');
-        toggleFullscreen();
-        $('video', $player)[0].play();
+    // ** Logo button ** //
+    $logoBtn.click(function(){
+        $main.hide();
+        $enterPageBtn.show();
+    });
+
+    // ** Hamburger menu ** //
+    $hamburger.click(function(){
+        $hamburger.toggleClass("is-active");
+        $nav.toggle();
+    });
+
+    // ** Play Diedre button ** //
+    $playDeidreBtn.click(function(){
         $(this).hide();
+        $logoBtn.hide();
+        $nav.hide();
+        $hamburger.hide();
+        $handsVideo.hide();
+        $discoverMoreMain.hide();
+        $footer.hide();
+        $deidreVideo.show();
+        $videoControls.css('display', 'flex');
+        if($deidreVideo[0].paused) {
+            $deidreVideo[0].play();
+        }
+        if (window.matchMedia("(min-width: 700px)").matches) {
+            $fullscreenBtn.hide();
+        }
     });
 
-    function toggleFullscreen() {
-        let elem = document.querySelector("video");
+    // ** Fullscreen video ** //
+    $fullscreenBtn.on('click', function() {
+        //For Webkit
+        $deidreVideo[0].webkitEnterFullscreen();
 
-        if (!document.fullscreenElement) {
-            elem.requestFullscreen().then({}).catch(err => {
-                alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
-            });
-        } else {
-            document.exitFullscreen();
-        }
-    }
+        //For Firefox
+        $deidreVideo[0].mozRequestFullScreen();
 
-    // ** Discover More button ** //
-    $discoverMoreBtn.click(function(){
-        $player.removeClass('hide');
-        toggleFullscreen();
-        $('video', $player)[0].play();
+        return false;
+    });
+
+    // ** Pause video ** //
+    $pauseBtn.click(function(){
         $(this).hide();
-    });
-
-
-}); //END DOM ready
-
-if (window.webshim) {
-    (function () {
-
-        webshim.setOptions('mediaelement', {
-            replaceUI: 'auto'
-        });
-        webshim.setOptions({types: 'range'});
-        webshim.setOptions('extendNative', true);
-        webshim.polyfill('mediaelement forms forms-ext');
-    })();
-}
-
-// ** Video controls ** //
-jQuery(function ($) {
-    $('div.player').each(function () {
-        var player = this;
-        var getSetCurrentTime = createGetSetHandler(
-
-            function () {
-                $('input.time-slider', player).prop('value', $.prop(this, 'currentTime'));
-            }, function () {
-                try {
-                    $('video, audio', player).prop('currentTime', $.prop(this, 'value'));
-                } catch (er) {}
-            });
-        var getSetVolume = createGetSetHandler(
-
-            function () {
-                $('input.volume-slider', player).prop('value', $.prop(this, 'volume'));
-
-            }, function () {
-                $('video, audio', player).prop('volume', $.prop(this, 'value'));
-            });
-        $('video, audio', this).bind('durationchange updateMediaState', function () {
-            var duration = $.prop(this, 'duration');
-            if (!duration) {
-                return;
-            }
-            $('input.time-slider', player).prop({
-                'max': duration,
-                disabled: false
-            });
-            $('span.duration', player).text(duration);
-        }).bind('progress updateMediaState', function () {
-            var buffered = $.prop(this, 'buffered');
-            if (!buffered || !buffered.length) {
-                return;
-            }
-            buffered = getActiveTimeRange(buffered, $.prop(this, 'currentTime'));
-            $('span.progress', player).text(buffered[2]);
-        }).bind('timeupdate', function () {
-            $('span.current-time', player).text($.prop(this, 'currentTime'));
-        }).bind('timeupdate', getSetCurrentTime.get).bind('emptied', function () {
-            $('input.time-slider', player).prop('disabled', true);
-            $('span.duration', player).text('--');
-            $('span.current-time', player).text(0);
-            $('span.network-state', player).text(0);
-            $('span.ready-state', player).text(0);
-            $('span.paused-state', player).text($.prop(this, 'paused'));
-            $('span.height-width', player).text('-/-');
-            $('span.progress', player).text('0');
-        }).bind('waiting playing loadedmetadata updateMediaState', function () {
-            $('span.network-state', player).text($.prop(this, 'networkState'));
-            $('span.ready-state', player).text($.prop(this, 'readyState'));
-        }).bind('play pause', function () {
-            $('span.paused-state', player).text($.prop(this, 'paused'));
-        }).bind('volumechange', function () {
-            var muted = $.prop(this, 'muted');
-            $('span.muted-state', player).text(muted);
-            $('input.muted', player).prop('checked', muted);
-            $('span.volume', player).text($.prop(this, 'volume'));
-        }).bind('volumechange', getSetVolume.get).bind('play pause', function () {
-            $('span.paused-state', player).text($.prop(this, 'paused'));
-        }).bind('loadedmetadata updateMediaState', function () {
-            $('span.height-width', player).text($.prop(this, 'videoWidth') + '/' + $.prop(this, 'videoHeight'));
-        }).each(function () {
-            if ($.prop(this, 'readyState') > $.prop(this, 'HAVE_NOTHING')) {
-                $(this).triggerHandler('updateMediaState');
-            }
-        });
-
-        $('input.time-slider', player).bind('input', getSetCurrentTime.set).prop('value', 0);
-        $('input.volume-slider', player).bind('input', getSetVolume.set);
-
-        $('input.play', player).bind('click', function () {
-            $('video, audio', player)[0].play();
-        });
-        $('input.pause', player).bind('click', function () {
-            $('video, audio', player)[0].pause();
-        });
-        $('input.muted', player).bind('click updatemuted', function () {
-            $('video, audio', player).prop('muted', $.prop(this, 'checked'));
-        }).triggerHandler('updatemuted');
-        $('input.controls', player).bind('click', function () {
-            $('video, audio', player).prop('controls', $.prop(this, 'checked'));
-        }).prop('checked', true);
-
-        $('select.load-media', player).bind('change', function () {
-            var srces = $('option:selected', this).data('src');
-            if (srces) {
-                $('video, audio', player).loadMediaSrc(srces).play();
-                $('video, audio', player)[0].play();
-            }
-        }).prop('selectedIndex', 0);
-    });
-});
-
-//helper for creating throttled get/set functions (good to create time/volume-slider, which are used as getter and setter)
-function createGetSetHandler(get, set) {
-    var throttleTimer;
-    var blockedTimer;
-    var blocked;
-    return {
-        get: function () {
-            if (blocked) {
-                return;
-            }
-            return get.apply(this, arguments);
-        },
-        set: function () {
-            clearTimeout(throttleTimer);
-            clearTimeout(blockedTimer);
-
-            var that = this;
-            var args = arguments;
-            blocked = true;
-            throttleTimer = setTimeout(function () {
-                set.apply(that, args);
-                blockedTimer = setTimeout(function () {
-                    blocked = false;
-                }, 30);
-            }, 0);
+        $playBtn.css('display', 'flex');
+        if($deidreVideo[0].played) {
+            $deidreVideo[0].pause();
         }
+        console.log('paused');
+    });
+
+    // ** Play video ** //
+    $playBtn.click(function(){
+        $(this).hide();
+        $pauseBtn.css('display', 'flex');
+        if($deidreVideo[0].paused) {
+            $deidreVideo[0].play();
+        }
+        console.log('played');
+    });
+
+    // ** Mute video ** //
+    $muteBtn.click(function () {
+        $(this).hide();
+        $loudBtn.css('display', 'flex');
+        $deidreVideo.prop('muted', true);
+        console.log('muted');
+    });
+
+    // ** Unmute video ** //
+    $loudBtn.click(function () {
+        $(this).hide();
+        $muteBtn.css('display', 'flex');
+        $deidreVideo.prop('muted', false);
+        console.log('unmuted');
+    });
+
+    // ** Progress bar video ** /
+
+    //get HTML5 video time duration
+    $deidreVideo.on('loadedmetadata', function() {
+        $duration.text($deidreVideo[0].duration);
+    });
+
+    //update HTML5 video current play time
+    $deidreVideo.on('timeupdate', function() {
+        $current.text($deidreVideo[0].currentTime);
+    });
+
+    $deidreVideo.on('timeupdate', function() {
+        var currentPos = $deidreVideo[0].currentTime; //Get currenttime
+        var maxduration = $deidreVideo[0].duration; //Get video duration
+        var percentage = 100 * currentPos / maxduration; //in %
+        $timeBar.css('width', percentage+'%');
+    });
+
+    var timeDrag = false;   /* Drag status */
+    $progressBar.mousedown(function(e) {
+        timeDrag = true;
+        updateProgressBar(e.pageX);
+    });
+
+    $(document).mouseup(function(e) {
+        if(timeDrag) {
+            timeDrag = false;
+            updateProgressBar(e.pageX);
+        }
+    });
+
+    $(document).mousemove(function(e) {
+        if(timeDrag) {
+            updateProgressBar(e.pageX);
+        }
+    });
+
+    var updateProgressBar = function(x) {
+        var progress = $('.progressBar');
+        var maxduration = $deidreVideo[0].duration; //Video duraiton
+        var position = x - progress.offset().left; //Click pos
+        var percentage = 100 * position / progress.width();
+
+        //Check within range
+        if(percentage > 100) {
+            percentage = 100;
+        }
+        if(percentage < 0) {
+            percentage = 0;
+        }
+
+        //Update progress bar and video currenttime
+        $('.timeBar').css('width', percentage+'%');
+        $deidreVideo[0].currentTime = maxduration * percentage / 100;
     };
-};
 
-function getActiveTimeRange(range, time) {
-    var len = range.length;
-    var index = -1;
-    var start = 0;
-    var end = 0;
-    for (var i = 0; i < len; i++) {
-        if (time >= (start = range.start(i)) && time <= (end = range.end(i))) {
-            index = i;
-            break;
+
+    // ** Exit video ** //
+    $exitBtn.click(function(){
+        if($deidreVideo[0].played) {
+            $playBtn.hide();
+            $pauseBtn.show();
+            $deidreVideo[0].pause();
         }
-    }
-    return [index, start, end];
-};
+        $videoControls.hide();
+        $deidreVideo.hide();
+        $homeBtn.hide();
+        $logoBtn.show();
+        $playDeidreBtn.show();
+        $discoverFremmedBtn.show();
+        if (window.matchMedia("(min-width: 700px)").matches) {
+            $hamburger.hide();
+            $nav.show();
+            $handsVideoWeb.show();
+        }else {
+            $nav.hide();
+            $hamburger.show();
+            $hamburger.removeClass("is-active");
+            $handsVideoMobile.show();
+        }
+    });
 
+    // ** Discover Fremmed button ** //
+    $discoverFremmedBtn.click(function(){
+        if($deidreVideo[0].played) {
+            $deidreVideo[0].pause();
+        }
+        $(this).hide();
+        $handsVideo.hide();
+        $logoBtn.show();
+        $homeBtn.show();
+        $discoverMoreMain.show();
+        $footer.show();
+        if (window.matchMedia("(min-width: 700px)").matches) {
+            $hamburger.hide();
+            $nav.show();
+        }else {
+            $nav.hide();
+            $hamburger.show();
+            $hamburger.removeClass("is-active");
+        }
+    });
+
+    // ** Home button ** //
+    $homeBtn.click(function(){
+        $(this).hide();
+        $deidreVideo[0].pause();
+        $discoverFremmedBtn.show();
+        $logoBtn.show();
+        if (window.matchMedia("(min-width: 700px)").matches) {
+            $hamburger.hide();
+            $nav.show();
+            $handsVideoWeb.show();
+            $handsVideoWeb[0].play();
+        }else {
+            $nav.hide();
+            $hamburger.show();
+            $hamburger.removeClass("is-active");
+            $handsVideoMobile.show();
+            $handsVideoMobile[0].play();
+        }
+    });
+}); //END DOM ready
