@@ -85,10 +85,34 @@ button:hover, a:hover{
     align-items: flex-end;
 }
 
-#enterPageTxt h6{
-    text-transform: lowercase;
-    font-weight: 100;
-    padding: 2em;
+.slide-in-fwd-center {
+    -webkit-animation: slide-in-fwd-center 3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: slide-in-fwd-center 3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@-webkit-keyframes slide-in-fwd-center {
+    0% {
+        -webkit-transform: translateZ(-1400px);
+        transform: translateZ(-1400px);
+        opacity: 0;
+    }
+    100% {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        opacity: 1;
+    }
+}
+@keyframes slide-in-fwd-center {
+    0% {
+        -webkit-transform: translateZ(-1400px);
+        transform: translateZ(-1400px);
+        opacity: 0;
+    }
+    100% {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        opacity: 1;
+    }
 }
 
 #enterPageBtn{
@@ -101,7 +125,7 @@ button:hover, a:hover{
 }
 
 #enterPageLogo{
-    width: 85%;
+    width: 60%;
 }
 
 /* Zoom animation for logo */
@@ -141,7 +165,7 @@ button:hover, a:hover{
 
 /************************ Navigation  ************************/
 #logo {
-    max-width: 60px;
+    max-width: 15%;
 }
 
 #logoBtn{
@@ -163,10 +187,11 @@ nav{
 }
 
 .navBtn{
-    padding: 2vw 0 2vw 0;
+    padding: 2vw 0.5vw 2vw 0.5vw;
     color: #2b2b2b;
     transform: rotate(180deg);
     border: solid 2px #B73B3B;
+    writing-mode: vertical-lr;
 }
 
 .navBtn::after {
@@ -201,13 +226,7 @@ nav{
     padding: 0;
     font-size: 10vw;
     margin: 0;
-    writing-mode: vertical-lr;
 }
-
-/*.navBtn h1:hover{
-    color: #B73B3B;
-}*/
-
 
 #homeBtn{
     display: none;
@@ -248,7 +267,7 @@ nav{
     margin-top: -2px; }
 .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
     width: 40px;
-    height: 4px;
+    height: 2px;
     background-color: #2A292D;
     border-radius: 4px;
     position: absolute;
@@ -281,16 +300,28 @@ nav{
 }
 
 /************************ Video player  ************************/
+/*video::-webkit-media-controls{
+    display: none !important;
+}*/
+
 .handsVideo, .deidreVideo {
     display: none;
     position: fixed;
     right: 0;
     bottom: 0;
-    max-height: 100vw;
-    width: 100vw;
+}
+
+#handsVideoMobile{
+    /*width: 100vw;
+    min-height: 100%;*/
+    width: 100%;
+    height: auto;
+    margin: 0;
 }
 
 .deidreVideo{
+    width: 100%;
+    height: auto;
     bottom: 50%;
 }
 
@@ -298,8 +329,10 @@ nav{
     display: none;
     position: fixed;
     z-index: 10;
+    bottom: 40%;
     width: 100%;
-    padding: 0.5vw;
+    padding: 1vw;
+    background-color: #8080808c;
 }
 
 .videoControlBtn {
@@ -314,8 +347,8 @@ nav{
 }
 
 .videoControlBtn img{
-    width: 6vw;
-    height: 6vw;
+    width: 5vw;
+    height: 5vw;
     padding: 0;
 }
 
@@ -353,12 +386,11 @@ nav{
     background-color: #ccc;
 }
 
-
 #timeSeparator{
     padding: 0;
 }
 
-#playBtn, #loudBtn{
+#playBtn, #muteBtn{
     display: none;
 }
 
@@ -373,7 +405,7 @@ nav{
 
 .paragraph{
     letter-spacing: 1px;
-    word-spacing: 9px;
+    word-spacing: 8px;
 }
 
 .paragraph strong{
@@ -382,13 +414,13 @@ nav{
 }
 
 #bandNamePng{
-    max-width: 40%;
+    max-width: 50%;
     margin: 0 0 8vw 0;
 }
 
 #bandImage{
     width: 100%;
-    padding: 0 0 10vw 0;
+    padding: 10vw 0 10vw 0;
 }
 
 /*************************** Footer ****************************/
@@ -420,27 +452,90 @@ footer img{
 }
 
 /************************ Media Queries ************************/
+/* Mobile - landscape mode */
+@media all and (max-width: 768px) and (orientation:landscape){
+    #enterPageLogo {
+        width: 40%;
+    }
 
-@media screen and (min-width: 600px){
+    #logoBtn {
+        top: 3%;
+        left: 2%;
+    }
+
+    #logo{
+        max-width: 10%;
+    }
+    
+    #handsVideoMobile{
+        width: 100%;
+        height: auto;
+    }
+
+    .hamburger {
+        padding: 0;
+        top:11%;
+        right: 3%;
+    }
+
+    .navBtn{
+        transform: none;
+        padding: 0.5vw 2vw 0.5vw 2vw;
+    }
+
+    .navBtn h1{
+        font-size: 4vw;
+        writing-mode: horizontal-tb;
+    }
+
+    .discoverMoreMain{
+        padding: 20vw 5vw 15vw 5vw;
+    }
+
+    #bandNamePng{
+        max-width: 35%;
+    }
+
+    .paragraph strong{
+        font-size: 4vw;
+    }
+
+    footer img {
+        max-width: 7vw;
+        padding: 1vw;
+    }
+
+    .deidreVideo{
+        bottom: 0;
+    }
+
+    .videoControls{
+        bottom: 0;
+    }
+
+    .videoControlBtn img {
+        width: 3vw;
+        height: 3vw;
+    }
+
+    #fullscreenBtn{
+        display: none;
+    }
+}
+
+/* Desktop small screen */
+@media all and (min-width: 1024px) and (max-width: 1600px){
     #enterPageLogo{
         width: 30%;
     }
 
-    #enterPageTxt h6{
-        font-size: 1.2vw;
-        bottom: 5%;
-        left: 45%;
-    }
-
     #logoBtn {
-        position: absolute;
-        left: 3%;
         top: 3%;
         padding: 0;
     }
 
     #logo{
-        max-width: 110px;
+        max-width: 9%;
     }
 
     nav {
@@ -450,29 +545,47 @@ footer img{
 
     .navBtn{
         position: fixed;
+        padding: 2vw 0 2vw 0;
     }
 
     .navBtn h1 {
         font-size: 3vw;
     }
 
+    /* Navigation buttons */
     #homeBtn, #discoverFremmedBtn{
         left: 4%;
-        bottom: 28%;
+        bottom: 20%;
     }
 
     #playDeidreBtn{
         right: 4%;
-        bottom: 28%;
+        bottom: 20%;
+    }
 
+    /* Video player */
+
+    #handsVideoWeb{
+        width: 100%;
+        height: auto;
     }
 
     .deidreVideo{
+        width: 100%;
+        height: auto;
         bottom: 0;
     }
 
-    #progress {
-        height: 1vw;
+    #videoControlsWrapper{
+        position: fixed;
+        bottom: 0;
+        height: 15%;
+        width: 100%;
+    }
+
+    .videoControls{
+        bottom: 0;
+        padding: 0;
     }
 
     .videoControlBtn{
@@ -481,11 +594,15 @@ footer img{
     }
 
     .videoControlBtn img {
-        width: 2vw;
-        height: 2vw;
+        width: 1.5vw;
+        height: 1.5vw;
     }
 
-    /* Discover Page */
+    .progressBar {
+        height: 1vw;
+    }
+
+    /* Discover Fremmed page */
     .discoverMoreMain {
         padding: 7vw 10vw 0 10vw;
         flex-flow: column;
@@ -502,6 +619,10 @@ footer img{
         font-size: 1.6vw;
     }
 
+    #bandNamePng{
+        max-width: 30%;
+    }
+
     #bandImage{
         width: 62%;
         padding: 5vw 0 5vw 0;
@@ -509,7 +630,7 @@ footer img{
 
     footer{
         flex-flow: row;
-        padding: 5vw;
+        padding: 7vw;
     }
 
     footer img {
@@ -522,3 +643,162 @@ footer img{
         padding: 0 2vw 0 2vw;
     }
 }
+
+
+/******** Desktop large screen *********/
+@media (min-width: 1600px) {
+    #enterPageLogo{
+        width: 35%;
+    }
+
+    #logoBtn {
+        top: 4%;
+        padding: 0;
+    }
+
+    #logo{
+        max-width: 10%;
+    }
+
+    nav {
+        background: transparent;
+        justify-content: space-between;
+    }
+
+    .navBtn{
+        position: fixed;
+        padding: 2vw 0 2vw 0;
+    }
+
+    .navBtn h1 {
+        font-size: 3vw;
+    }
+
+    /* Navigation buttons */
+    #discoverFremmedBtn{
+        left: 4%;
+        bottom: 20%;
+    }
+    
+    #homeBtn{
+        left: 4%;
+        bottom: 15%;
+    }
+
+    #playDeidreBtn{
+        right: 4%;
+        bottom: 20%;
+    }
+
+    /* Video player */
+    #handsVideoWeb{
+        width: 100%;
+        height: auto;
+    }
+
+    .deidreVideo{
+        bottom: 0;
+        width: 100%;
+        height: auto;
+    }
+
+    #videoControlsWrapper{
+        position: fixed;
+        bottom: 0;
+        height: 15%;
+        width: 100%;
+    }
+
+    .videoControls{
+        bottom: 0;
+        padding: 0;
+    }
+
+    .videoControlBtn{
+        padding: 1vw;
+        font-size: 1.5vw;
+    }
+
+    .videoControlBtn img {
+        width: 1.5vw;
+        height: 1.5vw;
+    }
+
+    .progressBar {
+        height: 1vw;
+    }
+
+    /* Discover Fremmed page */
+    .discoverMoreMain {
+        padding: 5vw 10vw 0 10vw;
+        flex-flow: column;
+    }
+
+    .paragraph{
+        width: 50vw;
+        font-size: 1.3vw;
+        letter-spacing: 1px;
+        word-spacing: 9px;
+    }
+
+    .paragraph strong{
+        font-size: 1.6vw;
+    }
+
+    #bandNamePng{
+        max-width: 30%;
+    }
+
+    #bandImage{
+        width: 62%;
+        padding: 5vw 0 5vw 0;
+    }
+
+    footer{
+        flex-flow: row;
+        padding: 7vw;
+    }
+
+    footer img {
+        max-width: 2.2vw;
+        padding: 0;
+    }
+
+    footer h5{
+        font-size: 2vw;
+        padding: 0 2vw 0 2vw;
+    }
+}
+
+/* Large screen, retina, stuff to override above media query */
+
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2)      and (min-width: 1300px),
+only screen and (   min--moz-device-pixel-ratio: 2)      and (min-width: 1300px),
+only screen and (     -o-min-device-pixel-ratio: 2/1)    and (min-width: 1300px),
+only screen and (        min-device-pixel-ratio: 2)      and (min-width: 1300px),
+only screen and (                min-resolution: 192dpi) and (min-width: 1300px),
+only screen and (                min-resolution: 2dppx)  and (min-width: 1300px) {
+
+    /* Navigation buttons */
+    #homeBtn, #discoverFremmedBtn{
+        left: 4%;
+        bottom: 30%;
+    }
+
+    #playDeidreBtn{
+        right: 4%;
+        bottom: 30%;
+    }
+
+    .deidreVideo {
+        width: auto;
+        min-height: 100%;
+    }
+
+    /* Discover Fremmed page */
+    .discoverMoreMain {
+        padding: 8vw 10vw 0 10vw;
+    }
+}
+

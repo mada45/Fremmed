@@ -14,6 +14,7 @@ $(() => {
     const $handsVideoMobile = $('#handsVideoMobile');
     const $handsVideoWeb = $('#handsVideoWeb');
     const $playDeidreBtn = $("#playDeidreBtn");
+    const $videoControlsWrapper = $('#videoControlsWrapper');
     const $deidreVideo = $('.deidreVideo');
     const $videoControls = $(".videoControls");
     const $fullscreenBtn = $("#fullscreenBtn");
@@ -30,20 +31,16 @@ $(() => {
     const $footer = $("footer");
 
     // ** Hide on page load ** //
-    $enterPageLogo.addClass('kenburns-top');
     $logoBtn.hide();
     $hamburger.hide();
     $nav.hide();
     $handsVideo.hide();
+    $videoControlsWrapper.hide();
     $discoverMoreMain.hide();
     $footer.hide();
 
     // ** Enter page function ** //
     $enterPageBtn.click(function(){
-        loadHomepage();
-    });
-
-    $enterPageTxt.click(function(){
         loadHomepage();
     });
 
@@ -67,7 +64,7 @@ $(() => {
     // ** Logo button ** //
     $logoBtn.click(function(){
         location. reload(true);
-        $startView.show();
+        loadHomepage();
     });
 
     // ** Hamburger menu ** //
@@ -86,23 +83,32 @@ $(() => {
         $discoverMoreMain.hide();
         $footer.hide();
         $deidreVideo.show();
+        $videoControlsWrapper.show();
         $videoControls.css('display', 'flex');
         if($deidreVideo[0].paused) {
             $deidreVideo[0].play();
         }
-        if (window.matchMedia("(min-width: 700px)").matches) {
+        if (window.matchMedia("(min-width: 992px)").matches) {
             $fullscreenBtn.hide();
+            setTimeout(function() {
+                $videoControls.fadeOut();
+                }, 3000);
         }
+
+        /* show/hide video player controls on hover */
+        $videoControlsWrapper.bind('hover mouseenter', function() {
+            $videoControls.fadeIn();
+            $videoControls.on('mouseleave', function() {
+                $videoControls.fadeOut();
+            });
+        });
     });
+
 
     // ** Fullscreen video ** //
     $fullscreenBtn.on('click', function() {
-        //For Webkit
         $deidreVideo[0].webkitEnterFullscreen();
-
-        //For Firefox
         $deidreVideo[0].mozRequestFullScreen();
-
         return false;
     });
 
@@ -113,7 +119,6 @@ $(() => {
         if($deidreVideo[0].played) {
             $deidreVideo[0].pause();
         }
-        console.log('paused');
     });
 
     // ** Play video ** //
@@ -123,7 +128,6 @@ $(() => {
         if($deidreVideo[0].paused) {
             $deidreVideo[0].play();
         }
-        console.log('played');
     });
 
     // ** Mute video ** //
@@ -131,7 +135,6 @@ $(() => {
         $(this).hide();
         $loudBtn.css('display', 'flex');
         $deidreVideo.prop('muted', true);
-        console.log('muted');
     });
 
     // ** Unmute video ** //
@@ -139,13 +142,12 @@ $(() => {
         $(this).hide();
         $muteBtn.css('display', 'flex');
         $deidreVideo.prop('muted', false);
-        console.log('unmuted');
     });
 
     // ** Progress bar video ** /
 
     //get HTML5 video time duration
-    $deidreVideo.on('loadedmetadata', function() {
+    $deidreVideo.on('timeupdate', function() {
         var minutes = Math.floor($deidreVideo[0].duration / 60);
         var seconds = Math.floor($deidreVideo[0].duration);
         $duration.text(minutes+':'+seconds);
@@ -207,13 +209,13 @@ $(() => {
             $pauseBtn.show();
             $deidreVideo[0].pause();
         }
-        $videoControls.hide();
+        $videoControlsWrapper.hide();
         $deidreVideo.hide();
         $homeBtn.hide();
         $logoBtn.show();
         $playDeidreBtn.show();
         $discoverFremmedBtn.show();
-        if (window.matchMedia("(min-width: 700px)").matches) {
+        if (window.matchMedia("(min-width: 992px)").matches) {
             $hamburger.hide();
             $nav.show();
             $handsVideoWeb.show();
@@ -235,10 +237,10 @@ $(() => {
         $handsVideo.hide();
         $logoBtn.show();
         $homeBtn.show();
-        $homeBtn.css('bottom','40%');
+        $homeBtn.css('bottom','36%');
         $discoverMoreMain.show();
         $footer.show();
-        if (window.matchMedia("(min-width: 700px)").matches) {
+        if (window.matchMedia("(min-width: 992px)").matches) {
             $hamburger.hide();
             $nav.show();
         }else {
@@ -256,7 +258,7 @@ $(() => {
         $deidreVideo[0].pause();
         $discoverFremmedBtn.show();
         $logoBtn.show();
-        if (window.matchMedia("(min-width: 700px)").matches) {
+        if (window.matchMedia("(min-width: 992px)").matches) {
             $hamburger.hide();
             $nav.show();
             $handsVideoWeb.show();

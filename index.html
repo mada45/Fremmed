@@ -13,8 +13,7 @@
     </head>
     <body>
         <section id="startView">
-            <button type="button" id="enterPageBtn"><img src="resources/logo.png" id="enterPageLogo" alt="logo"></button>
-            <button  type="button" id="enterPageTxt"><h6>click to continue..</h6></button>
+            <button type="button" id="enterPageBtn"><img src="resources/logo.png" class="kenburns-top" id="enterPageLogo" alt="logo"></button>
         </section>
         <main>
             <header>
@@ -34,7 +33,7 @@
                 <a class="navBtn" id="playDeidreBtn" type="button"><h1>Play new song 'Deidre'</h1></a>
             </nav>
 
-            <video class="handsVideo" id="handsVideoMobile" autoplay loop muted>
+            <video class="handsVideo" id="handsVideoMobile" autoplay loop muted playsinline>
                 <source src="resources/blue-hands-mobile.mp4" type="video/mp4">
                 Your browser doesn't support HTML5 video. Download the video instead.
             </video>
@@ -45,13 +44,17 @@
             </video>
 
             <!-- Deidre View -->
-            <div id="video_player_box">
+            <video class="deidreVideo" loop muted playsinline>
+                <source src="resources/gucci-gang.mp4" type="video/mp4">
+                Your browser doesn't support HTML5 video. Download the video instead.
+            </video>
+            <div id="videoControlsWrapper">
                 <div class="videoControls">
-                    <button class="videoControlBtn" id="fullscreenBtn"><img src="resources/expand-solid.svg"></button>
-                    <button class="videoControlBtn" id="playBtn"><img src="resources/play.svg"></button>
-                    <button class="videoControlBtn" id="pauseBtn"><img src="resources/pause.svg"></button>
-                    <button class="videoControlBtn" id="muteBtn"><img src="resources/mute-on.svg"></button>
-                    <button class="videoControlBtn" id="loudBtn"><img src="resources/mute-off.svg"></button>
+                    <button class="videoControlBtn" id="fullscreenBtn"><img src="resources/expand-solid.svg" alt="exit video"></button>
+                    <button class="videoControlBtn" id="playBtn"><img src="resources/play.svg" alt="play video"></button>
+                    <button class="videoControlBtn" id="pauseBtn"><img src="resources/pause.svg" alt="pause video"></button>
+                    <button class="videoControlBtn" id="muteBtn"><img src="resources/mute-on.svg" alt="sound off"></button>
+                    <button class="videoControlBtn" id="loudBtn"><img src="resources/mute-off.svg" alt="sound on"></button>
                     <div class="progressBar">
                         <span id="timeBar"></span>
                         <span id="bufferBar"></span>
@@ -59,23 +62,19 @@
                     <span class="videoControlBtn" id="current"></span>
                     <span class="videoControlBtn" id="timeSeparator">/</span>
                     <span class="videoControlBtn" id="duration"></span>
-                    <button class="videoControlBtn" id="exitBtn"><img src="resources/close.svg"></button>
+                    <button class="videoControlBtn" id="exitBtn"><img src="resources/close.svg" alt="exit video"></button>
                 </div>
-                <video class="deidreVideo" muted>
-                    <source src="resources/gucci-gang.mp4" type="video/mp4">
-                    Your browser doesn't support HTML5 video. Download the video instead.
-                </video>
             </div>
             <!-- Discover View -->
-            <section class="discoverMoreMain">
-                <img id="bandNamePng" src="resources/logo-text.png">
-                <p class="paragraph" id="paragraph1">We are Fremmed, a post-punk metal band hailing from Denmark and the Faroe Islands,
-                    that are currently based in Copenhagen. Our drive is to make sense of the world, which each of us struggles with from time to time.
-                    For us, to make music is one way of &#39;interpreting&#39; an undefinable sense of not belonging anywhere. <br><br>The emotional experience
+            <article class="discoverMoreMain">
+                <img id="bandNamePng" alt="band name" src="resources/logo-text.png">
+                <p class="paragraph" id="paragraph1">Fremmed are a post-punk metal band hailing from Denmark and the Faroe Islands, that are currently based
+                    in Copenhagen. Their drive is to make sense of the world, which each of them have struggled with from time to time. For them, to make
+                    music is one way of &#39;interpreting&#39; an undefinable sense of not belonging anywhere. <br><br>The emotional experience
                     of homelessness and loneliness is not always something that can be put into words - and in that way, their music can express it without
                     interpreting it.
                 </p>
-                <img src="resources/the-band.jpg" id="bandImage">
+                <img src="resources/the-band.jpg" alt="the band" id="bandImage">
                 <p class="paragraph" id="paragraph2">
                     <strong>History</strong><br><br>
                     The band was formed in 2013 by the lead singer, Atli Kamban, guitarist, Niels Asger Svensson and and Linus
@@ -88,21 +87,22 @@
                 <p class="paragraph" id="paragraph3">
                     <strong>Releases</strong><br><br>
                     Fremmed released an EP called <q>Conversation with Cora</q> in 2013. Later, in 2014 they released <q>Horses</q>, and then their full length album,
-                    called <q>Home to the Wind</q>.<br><br>Link to soundcloud.com
+                    called <q>Home to the Wind</q>
                 </p>
                 <p class="paragraph" id="paragraph4">
                     <strong>Performances</strong><br><br>
                     They have played at Loppen in Christiania and The Bunker in N&#248;rrebro in Denmark. See here where they will perform next.
                 </p>
-            </section>
+            </article>
             <!-- Social media buttons -->
             <footer>
                 <!--<h5>connect</h5>-->
                 <span class="footerIcons">
-                    <button class="footerIconBtn"><img src="resources/facebook.svg"></button>
-                    <button class="footerIconBtn"><img src="resources/instagram.svg"></button>
-                    <button class="footerIconBtn"><img src="resources/spotify.svg"></button>
-                    <button class="footerIconBtn"><img src="resources/youtube.svg"></button>
+                    <button class="footerIconBtn"><img src="resources/youtube.svg" alt="youtube"></button>
+                    <button class="footerIconBtn"><img src="resources/spotify.svg" alt="spotify"></button>
+                    <button class="footerIconBtn"><img src="resources/soundcloud.svg" alt="soundcloud"></button>
+                    <button class="footerIconBtn"><img src="resources/facebook.svg" alt="facebook icon"></button>
+                    <button class="footerIconBtn"><img src="resources/instagram.svg" alt="instagram icon"></button>
                 </span>
             </footer>
         </main>

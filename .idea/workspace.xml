@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="923198df-bd2f-4520-bece-b7ad91821bcd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/ppa.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/page-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/page-style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/scripts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/logo-no-name.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/logo-no-name.png" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,12 +19,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="73" column="78" selection-start-line="73" selection-start-column="56" selection-end-line="73" selection-end-column="78" />
+            <state relative-caret-position="160">
+              <caret line="67" column="26" selection-start-line="67" selection-start-column="26" selection-end-line="67" selection-end-column="26" />
               <folding>
-                <element signature="n#head#0;n#html#0;n#!!top" />
-                <element signature="e#4218#4223#0" expanded="true" />
-                <element signature="e#4236#4241#0" expanded="true" />
+                <element signature="e#4288#4293#0" expanded="true" />
+                <element signature="e#4305#4310#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -32,8 +32,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/page-style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="49" column="10" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="10" />
+            <state relative-caret-position="-520">
+              <caret line="682" column="9" selection-start-line="682" selection-start-column="5" selection-end-line="682" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -41,8 +41,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/scripts.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="237" column="33" selection-start-line="237" selection-start-column="33" selection-end-line="237" selection-end-column="33" />
+            <state relative-caret-position="236">
+              <caret line="239" selection-start-line="239" selection-end-line="239" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -58,23 +58,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>listen-pl</find>
-      <find>videoContain</find>
-      <find>watchNow</find>
-      <find>nav</find>
-      <find>hamburger</find>
-      <find>watc</find>
-      <find>exi</find>
-      <find>muted</find>
-      <find>disco</find>
-      <find>hi</find>
-      <find>black</find>
-      <find>color:</find>
-      <find>watch</find>
-      <find>white</find>
-      <find>heade</find>
-      <find>align-self</find>
-      <find>discoverM</find>
       <find>band</find>
       <find>discover</find>
       <find>footerIcon</find>
@@ -88,6 +71,23 @@
       <find>body</find>
       <find>logo</find>
       <find>margin</find>
+      <find>enter</find>
+      <find>enterPageTxt</find>
+      <find>startView</find>
+      <find>lou</find>
+      <find>video_player_box</find>
+      <find>nav</find>
+      <find>webkit</find>
+      <find>fullscree</find>
+      <find>video</find>
+      <find>main</find>
+      <find>deidreVide</find>
+      <find>deidreVideo</find>
+      <find>handsVideo</find>
+      <find>bottom: 40</find>
+      <find>navBtn</find>
+      <find>homeBtn</find>
+      <find>home</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -99,9 +99,9 @@
         <option value="$PROJECT_DIR$/../projects/Wedding Planner/css/home.css" />
         <option value="$PROJECT_DIR$/css/hamburgers.css" />
         <option value="$PROJECT_DIR$/discoverMore.html" />
+        <option value="$PROJECT_DIR$/css/page-style.css" />
         <option value="$PROJECT_DIR$/js/scripts.js" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/css/page-style.css" />
       </list>
     </option>
   </component>
@@ -176,12 +176,14 @@
       <workItem from="1553785665668" duration="9694000" />
       <workItem from="1553800524738" duration="21220000" />
       <workItem from="1554193629879" duration="824000" />
-      <workItem from="1554558366295" duration="15072000" />
+      <workItem from="1554558366295" duration="15116000" />
+      <workItem from="1554585479792" duration="1710000" />
+      <workItem from="1554720722844" duration="27762000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101690000" />
+    <option name="totallyTimeSpent" value="131206000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -196,10 +198,9 @@
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2771673" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2832723" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Inspection Results" weight="0.32959184" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -209,9 +210,10 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32959184" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32959184" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="9" visible="true" weight="0.32959184" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32959184" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Inspection Results" order="12" weight="0.32959184" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -273,36 +275,29 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/hamburgers.css" />
-    <entry file="file://$PROJECT_DIR$/discoverMore.html">
+    <entry file="file://$PROJECT_DIR$/discoverMore.html" />
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="83" selection-start-line="16" selection-start-column="83" selection-end-line="16" selection-end-column="83" />
+        <state relative-caret-position="160">
+          <caret line="67" column="26" selection-start-line="67" selection-start-column="26" selection-end-line="67" selection-end-column="26" />
+          <folding>
+            <element signature="e#4288#4293#0" expanded="true" />
+            <element signature="e#4305#4310#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/page-style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="49" column="10" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="73" column="78" selection-start-line="73" selection-start-column="56" selection-end-line="73" selection-end-column="78" />
-          <folding>
-            <element signature="n#head#0;n#html#0;n#!!top" />
-            <element signature="e#4218#4223#0" expanded="true" />
-            <element signature="e#4236#4241#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-520">
+          <caret line="682" column="9" selection-start-line="682" selection-start-column="5" selection-end-line="682" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/scripts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="237" column="33" selection-start-line="237" selection-start-column="33" selection-end-line="237" selection-end-column="33" />
+        <state relative-caret-position="236">
+          <caret line="239" selection-start-line="239" selection-end-line="239" selection-end-column="37" />
         </state>
       </provider>
     </entry>
